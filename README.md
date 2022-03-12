@@ -1,6 +1,6 @@
 # Kanban_162
 
-This is a Kanban app that allows the user to keep track of their tasks by categorizing them either into "To Do", "Doing" or "Done". These tasks can later be updated or deleted if the user chooses to do so. The user's tasks are protected by user authentication (email + password), but wore unto them if they forget their password (the app does not support password recovery, yet). The app is built on the Flask micro-framework, using an SQLAlchemy database models to store the user and task information. The styling is CSS only. Feel free to clone the repo and play around with the app!
+This is a Kanban app that allows the user to keep track of their tasks by categorizing them either into "To Do", "Doing" or "Done". These tasks can later be updated or deleted if the user chooses to do so. The user's tasks are protected by user authentication (email + password), but woe unto them if they forget their password (the app does not support password recovery, yet). The app is built on the Flask micro-framework, using SQLAlchemy database models to store the user and task information. The styling is CSS only. Feel free to clone the repo and play around with the app!
 
 
 ### Getting the app running
