@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content%}
+    <div class="main_body_navbar">
+        <button><a href="{{url_for('new')}}">Add New</a></button>
+    </div>
+    <div class="main_body_content">
+
+        <div class="container" id="container1">
+            <br><h3>To Do</h3><hr><br>
+            {% for task in task_list if task.types == "To Do"%}
+            <div class="row">
+                <div class="column left">
+                    <p>{{task.description}}</p>
+                </div>
+                <div class="column right">
+                    <p id="p1">{{task.title}}</p><p>
+                    <button><a href="/update/{{task.id}}">Update</a></button>
+                    <button><a href="/delete/{{task.id}}" onclick=" return customDeleteAlert();">Delete</a></button></p>
+                    {% from 'macros.html' import time_format%}
+                    {{time_format(task, today, yesterday)}}
+                </div>   
+            </div>             
+            {% endfor %}
+        </div>
+
+        <div class="container" id="container2">
+            <br><h3>Doing</h3><hr><br>
+            {% for task in task_list if task.types == "Doing"%}
+            <div class="row">
+                <div class="column left">
+                    <p>{{task.description}}</p>
+                </div>
+                <div class="column right">
+                    <p id="p1">{{task.title}}</p><p>
+                    <button><a href="/update/{{task.id}}">Update</a></button>
+                    <button><a href="/delete/{{task.id}}" onclick=" return customDeleteAlert();">Delete</a></button></p>
+                    {% from 'macros.html' import time_format%}
+                    {{time_format(task, today, yesterday)}}
+                </div> 
+            </div>               
+            {% endfor %}
+        </div>
+
+        <div class="container" id="container3">
+            <br><h3>Done</h3><hr><br>
+            {% for task in task_list if task.types == "Done"%}
+            <div class="row">
+                <div class="column left">
+                    <p>{{task.description}}</p>
+                </div>
+                <div class="column right">
+                    <p id="p1">{{task.title}}</p><p>
+                    <button><a href="/update/{{task.id}}">Update</a></button>
+                    <button><a href="/delete/{{task.id}}" onclick=" return customDeleteAlert();">Delete</a></button></p>
+                    {% from 'macros.html' import time_format%}
+                    {{time_format(task, today, yesterday)}}
+                </div> 
+            </div>               
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Philip Barven">
+    <meta name="description" content="This is a Kanban Board App created for the purposes of cs162 Web-App Assignment.">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ url_for('static', filename = 'images/kanbanana.png')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/style.css')}}">
+    <title>cs162 PCW</title>
+    <script>
+        function customLogAlert() {
+          return confirm(JSON.parse('{{ view['dialog'] | tojson }}'));
+        }
+        function customDeleteAlert() {
+          return confirm('Are you sure you want to delete this task?');
+        }
+    </script>
+</head>
+<body>
+    <section class="main_header">
+        <header>
+            <div id="branding">
+                <h1>   
+                <a href="{{url_for('home')}}">
+                    <!-- Note: Marquee is considered deprecated but I thought it would be cool for this small project -->
+                    <marquee direction="up" scrollamount="1" loop="infinite">
+                        <span style="color:orange">K</span>
+                        <span style="color:purple">a</span>
+                        <span style="color:lime">N</span>
+                        <span style="color:red">B</span>
+                        <span style="color:gray">a</span>
+                        <span style="color:yellow">n</span>
+                    </marquee>
+                </a>
+                </h1>
+            </div>
+        </header>
+        <div class="main_header_navbar">
+            <nav> 
+                <ul>
+                    <li><a href="{{url_for(view['t_link'])}}"><b><span style="color:#e8491d">{{view['title']}}</span></b></a></li>
+                    <li><a href="{{url_for(view['f_link'])}}" onclick=" return customLogAlert();"><b>{{view['function']}}</b></a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    
+    <section class="main_body">
+        {% block content%}
+        {% endblock %}
+    </section>
+    
+    <section class="main_footer">
+        <p>Kanban Services Ltd., Copyright &copy;2022</p>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content%}    
+
+    <div class="container" id="container4">
+        <h3>Login</h3><hr>
+        <form method="POST" action="/login/" type="reset">
+            {{ form.hidden_tag() }}
+            {{ form.email }}
+            {{ form.password }}
+            {{ form.submit }}
+        </form>
+        {% with messages = get_flashed_messages()%}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+
+{% endblock %}

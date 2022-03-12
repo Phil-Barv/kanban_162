@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container" id="container4">
+        <h2>Error {{error['error']}}</h2>
+        <hr>
+        <marquee direction="down" width="300" height="200" behavior="alternate">
+            <marquee behavior="alternate">
+                <h1> Ooopsieee</h1>
+            </marquee>
+        </marquee>
+        <p>{{error['description']}}</p>
+    </div>
+{% endblock %}

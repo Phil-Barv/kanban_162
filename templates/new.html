@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content%}
+    <div class="main_body_navbar">
+        <button><a href="{{url_for('home')}}">Home</a></button>
+    </div>
+    <div class="main_body_content">
+        <div class="container" spellcheck="true">
+            <form method="POST" action="/new/">
+                <h3>Add New Task</h3>
+                <hr><br>               
+                <ul>
+                    {{ form.hidden_tag() }}
+                    <li>
+                        {{ form.types.label }}
+                        {{ form.types(class_="select") }}
+                    </li>
+                    <li>
+                        {{ form.title.label }}
+                        {{ form.title(class_="input") }}
+                    </li>
+                    <li>
+                        {{ form.description.label }}
+                        {{ form.description(class_="textarea") }}
+                    </li>
+                    {{ form.submit(id_="submit") }}
+                </ul>
+            </form>
+        </div>
+    </div>
+{% endblock %}

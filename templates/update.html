@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content%}
+ 
+<div class="main_body_navbar">
+    <button><a href="/home/">Home</a></button>
+</div>
+<div class="main_body_content">
+    <div class="container" spellcheck="true">
+        <form method="POST" action="/update/{{update.id}}">
+
+            <!-- For the update, I stuck to HTML forms as the wtf wasn't giving desired functionality -->
+            <h3>Update Task</h3>
+            <hr><br>
+            <ul>
+                <li>
+                    <label for="entry_type">Task Type:</label>
+                    <select id="entry_type" name="entry_type" required>
+                        <option value="{{update.types}}" selected hidden>{{update.types}}</option>
+                        <option value="To Do">To Do</option>
+                        <option value="Doing">Doing</option>
+                        <option value="Done">Done</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="title">Task Label:</label>
+                    <input type="text" id="title" name="entry_title" maxlength="20" required value="{{update.title}}">
+                </li>
+                <li>
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="entry_description" maxlength="100" required value="{{update.description}}">{{update.description}}</textarea>
+                </li>
+                <input type="submit" id="submit" value="Submit">
+            </ul>
+        </form>
+    </div>
+</div>
+    
+{% endblock %}

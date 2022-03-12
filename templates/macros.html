@@ -1,0 +1,12 @@
+{% macro time_format(task, today, yesterday)%}
+    {% if task.date_created.strftime('%d-%m-%Y') == today.strftime('%d-%m-%Y') %}
+        <p id="p2" >Today at {{task.date_created.strftime('%H:%M')}} <span id ="p3">UTC</span></p>
+    
+    {% elif task.date_created.strftime('%d-%m-%Y') == yesterday.strftime('%d-%m-%Y') %}
+        <p id="p2" >Yesterday at {{task.date_created.strftime('%H:%M')}} <span id ="p3">UTC</span></p>
+
+    {% else %}
+        <p id="p2" >{{task.date_created.strftime('%d-%m-%Y')}}</p>
+
+    {% endif %}
+{% endmacro %}
